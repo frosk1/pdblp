@@ -307,7 +307,8 @@ class BCon(object):
             has_security_error = 'securityError' in d['securityData']
             has_field_exception = len(d['securityData']['fieldExceptions']) > 0
             if has_security_error or has_field_exception:
-                raise ValueError(d)
+                continue
+                # raise ValueError(d)
             ticker = d['securityData']['security']
             fldDatas = d['securityData']['fieldData']
             for fd in fldDatas:
